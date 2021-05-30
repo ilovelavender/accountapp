@@ -39,7 +39,7 @@ POST http://localhost:8888/api/transactions
     "timestamp": "2021-05-30T21:25:27.158+00:00",
     "status": 500,
     "error": "Internal Server Error",
-    "message": "Not enough founds for transaction on account - 40814444444444444444",
+    "message": "Not enough funds for transaction on account - 40814444444444444444",
     "path": "/api/transactions"
 }
 ```

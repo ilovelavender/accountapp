@@ -5,7 +5,7 @@ package ru.olegr.accountapp.model.exception;
  */
 public class InsufficientBalanceException extends RuntimeException {
 
-    private static final String MESSAGE_FORMAT = "Not enough founds for transaction on account - %s";
+    private static final String MESSAGE_FORMAT = "Not enough funds for transaction on account - %s";
 
     /**
      * @param accountNumber номер счёта, на котором недостаточно средств
