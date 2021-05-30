@@ -15,9 +15,9 @@
     <description>Simple application to transfer money between accounts</description>
     <properties>
         <java.version>11</java.version>
-        <db.url>jdbc:postgresql://localhost:5434/accountapp?characterEncoding=utf8</db.url>
-        <db.user>postgres</db.user>
-        <db.password>springlesson</db.password>
+        <db.url>jdbc:postgresql://localhost:5432/accountapp?characterEncoding=utf8</db.url>
+        <db.user>accountapp</db.user>
+        <db.password>accountapp</db.password>
     </properties>
     <dependencies>
         <dependency>
@@ -78,16 +78,25 @@
             <plugin>
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
-                <configuration>
-                    <user>${db.user}</user>
-                    <password>${db.password}</password>
-                    <url>${db.url}</url>
-                    <encoding>UTF-8</encoding>
-                    <createSchemas>true</createSchemas>
-                    <schemas>
-                        <schema>public</schema>
-                    </schemas>
-                </configuration>
+                <executions>
+                    <execution>
+                        <id>flyway-migrate</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>migrate</goal>
+                        </goals>
+                        <configuration>
+                            <user>${db.user}</user>
+                            <password>${db.password}</password>
+                            <url>${db.url}</url>
+                            <encoding>UTF-8</encoding>
+                            <createSchemas>true</createSchemas>
+                            <schemas>
+                                <schema>public</schema>
+                            </schemas>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.jooq</groupId>
@@ -102,7 +111,7 @@
                         <configuration>
 
                             <!-- TEMPORARY CHANGE LINE BELOW TO "false" TO LAUNCH CODE GENERATION -->
-                            <skip>false</skip>
+                            <skip>true</skip>
                             <!-- ________________________________________________________________ -->
 
                             <jdbc>

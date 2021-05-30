@@ -1,11 +1,10 @@
 package ru.olegr.accountapp;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.web.client.RestTemplate;
+import ru.olegr.accountapp.configuration.AccountAppApplication;
 
-@SpringBootTest
+@SpringBootTest(classes = {AccountAppApplication.class})
 public class AccountappApplicationTests {
 
     @Test
